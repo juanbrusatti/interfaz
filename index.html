@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botón Cambiante</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#miBoton {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#miBoton:hover {
+    background-color: #2980b9;
+}
+
+#miBoton.clicked {
+    transform: scale(1.1);
+}
+</style>
+<script>
+function cambiarTexto() {
+    var boton = document.getElementById("miBoton");
+    if (boton.innerHTML === "¡Hola!") {
+        boton.innerHTML = "¡Puedes pasar!";
+    } else {
+        boton.innerHTML = "¡Hola!";
+    }
+    boton.classList.toggle("clicked");
+    setTimeout(function() {
+        boton.classList.toggle("clicked");
+    }, 200);
+}
+</script>
+</head>
+<body>
+<button id="miBoton" onclick="cambiarTexto()">¡Hola!</button>
+</body>
+</html>
